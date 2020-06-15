@@ -1,19 +1,16 @@
-#Simple Linear Regerimport pandas as pd
+#Simple Linear Regression
+import pandas as pd
 import matplotlib.pyplot as py
 import numpy as np
-import pandas as pd 
 
-#import dataset
+#importing  dataset where downloaded
 dataset = pd.read_csv('Salary_Data.csv')
 X=dataset.iloc[:,:-1].values #independent variable
 Y=dataset.iloc[:,1].values   #dependent variable
 
-
-
-
 # spliting the data set into Training set and Test Set
 from sklearn.model_selection import train_test_split
-X_train,X_test,Y_train,Y_test = train_test_split(X,Y,test_size = 1/3,random_state=0)
+X_train,X_test,Y_train,Y_test = train_test_split(X,Y,test_size = 1/3,random_state=0)  #splitting by 1/3
 
 #fitting Simple Linear Regression Model
 from sklearn.linear_model import LinearRegression
@@ -21,7 +18,7 @@ regressor = LinearRegression()
 regressor.fit(X_train,Y_train)
 
 #Predicting the Test set results
-Y_pred = regressor.predict(X_test)
+Y_pred = regressor.predict(X_test)  #predicting X_test 
 
 #Visualsing the training  set result
 py.scatter(X_train,Y_train,color ='red')
